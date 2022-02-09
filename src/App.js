@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./layouts/Header/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { routes } from "./routes/Routes";
+import Footer from "./layouts/footer/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         ))
         }
       </Routes>
+      <Footer/>
     </div>
     </Router>
   );

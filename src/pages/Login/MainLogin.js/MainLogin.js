@@ -1,5 +1,5 @@
 import React from "react";
-import { MainForm, FormArea, Input, Label, LoginButton } from './MainLogin.style'
+import { MainForm, FormArea, Input, Label, LoginButton,PStyle ,PLast} from './MainLogin.style'
 import { Link } from "react-router-dom";
 
 function MainLogin() {
@@ -8,18 +8,19 @@ function MainLogin() {
       <FormArea>
         <h3>Welcome Back!</h3>
         <p>We're so excited to see you again!</p>
+
         <MainForm>
           <Label>Email</Label>
           <Input></Input>
           <Label>Password</Label>
           <Input></Input>
-          <p>Forgot your password?</p>
-          <LoginButton>Login</LoginButton>
+          <PStyle>Forgot your password?</PStyle>
         </MainForm>
-        <p>
-          Need an account? <Link to="/login">Register</Link>
-        </p>
-      </FormArea>
+        <LoginButton>Login</LoginButton>
+        <PLast>
+        <p> Need an account? <Link to="/register"><span>Register</span></Link></p>
+      </PLast>
+    </FormArea>
     </div>
   );
 }
