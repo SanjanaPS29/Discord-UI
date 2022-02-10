@@ -16,7 +16,8 @@ function App() {
         ))
         }
       </Routes>
-      <Footer/>
+      {/* footer changes */}
+      {/* <Footer/> */}
     </div>
     </Router>
   );

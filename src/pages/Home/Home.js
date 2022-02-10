@@ -4,6 +4,7 @@ import Fandom from '../../assets/home-fandom.PNG';
 import Hanging from '../../assets/home-hanging.PNG';
 import InviteFriends from '../../assets/home-invite.PNG';
 import JustChilling from '../../assets/home-justchilling.PNG';
+import Footer from '../../layouts/footer/Footer';
 
 function Home() {
   return (
@@ -46,7 +47,7 @@ function Home() {
   <button>Download for Mac</button>
 </ReliableTech>
 
-
+<Footer/>
   </MainContainer>
   );
 }

@@ -2,8 +2,7 @@ import styled from "styled-components";
 import loginbackground from '../../assets/login-bg.PNG';
 
 export const Input=styled.input` 
-text-transform:uppercase;
-color:#8e9297;
+color:#fff;
 background-color:#2f3136;
 width:100%;
 margin-bottom:2em;

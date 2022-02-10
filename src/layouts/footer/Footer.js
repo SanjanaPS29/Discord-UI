@@ -1,14 +1,17 @@
 import React from "react";
-import { FooterStyle, FlexBox, FooterLinks,MainFooter } from "./Footer.style";
+import { FooterStyle, FlexBox, FooterLinks,MainFooter,PStyle,SocailMedia,Icon } from "./Footer.style";
+import UsaFlag from '../../assets/image-footer/usaFlag.png';
+import {AiOutlineYoutube,AiOutlineInstagram,AiOutlineFacebook} from 'react-icons/ai';
+import {FaTwitter} from 'react-icons/fa';
 
 function Footer() {
   return (
     <FooterStyle>
       <MainFooter>
         <div>
-          <div>Imagine a place</div>
-          <div>English</div>
-          <div>Social media</div>
+          <PStyle>Imagine a place</PStyle>
+          <div><div><img src={UsaFlag} width="30%" alt="usa flag"/></div><div>English, USA</div></div>
+      <SocailMedia><Icon><FaTwitter/></Icon><Icon><AiOutlineInstagram/></Icon><Icon><AiOutlineFacebook/></Icon><Icon><AiOutlineYoutube/></Icon></SocailMedia>
         </div>
         <FooterLinks>
           <FlexBox>
