@@ -10,7 +10,7 @@ import { ActiveStyle,Activety } from './ActiveNow.style'
         
          <h4>It's quite for now...</h4>
          <p>when a friend starts an activity--Like playing a game or hanging out on voice--we'll show it here?
-             !
+             
          </p>
     </Activety>
     </ActiveStyle>

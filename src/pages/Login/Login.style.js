@@ -11,10 +11,10 @@ margin:1em;
 
 export const LoginStyle=styled.div` 
  display:flex;
-   max-width:100%;
+max-width:100%;
  background-color: #36393f;
- padding:1em;
- 
+ padding:2em 1em;
+ border-radius:10px;
 `
 export const Background=styled.div` 
 background-image:url(${loginbackground});
@@ -23,4 +23,6 @@ height:100vh;
 justify-content:center;
 display:flex;
 align-items:center;
+
 `
+

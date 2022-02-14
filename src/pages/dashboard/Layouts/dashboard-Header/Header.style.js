@@ -24,6 +24,7 @@ li{
 export const ListStyle=styled.li` 
 list-style:none;
 color:${props=> props.color || "#fff"};
+cursor:pointer;
 `
 
 export const Button=styled.button` 
@@ -32,5 +33,5 @@ color:#fff;
 border:none;
 border-radius:5px;
 padding:3px 5px;
-
+cursor:pointer;
 `

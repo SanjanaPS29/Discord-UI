@@ -30,12 +30,13 @@ div{
 export const DirectMessage=styled.div`
 display:flex;
 justify-content: space-between;
+cursor:pointer;
 `
 
 export const LinkStyle=styled.div` 
 padding-top:0.5em;
 padding-botton:1em;
-
+cursor:pointer;
 `
 
 export const InputSearch=styled.input.attrs({type:'text' ,placeholder:'Find or start a conversations'})` 

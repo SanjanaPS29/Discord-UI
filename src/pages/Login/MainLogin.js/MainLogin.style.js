@@ -15,7 +15,6 @@ h3{
     margin-bottom:0.3em;
 }
 
-
 `
 export const MainForm=styled.form` 
  display:flex;
@@ -28,6 +27,7 @@ flex-direction:column;
 export const Input=styled.input` 
  background-color:#2f3136;
  margin-bottom:1em;
+ color:#fff;
  padding:0.5em;
 `
 
@@ -64,4 +64,12 @@ a{
         color:#00aff4;
     }
 }
+`
+
+export const Error=styled.h4`
+color: red;
+font-weight:500;
+margin-bottom:5px;
+height:1.5em;
+text-align:center;
 `

@@ -61,3 +61,11 @@ margin-top: 1.5em;
 color: white;
 border:none;
 `
+export const Error=styled.h3`
+color: red;
+fontSize:4em;
+font-weight:500;
+margin-bottom:5px;
+height:1em;
+text-align:center;
+`

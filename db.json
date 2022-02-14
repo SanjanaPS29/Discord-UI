@@ -1,151 +1,28 @@
 {
   "registration": [
     {
-      "email": "ssas",
-      "username": "xcxc",
-      "password": "sdkdkd",
-      "id": 1
-    },
-    {
-      "email": "ssas",
-      "username": "xcxc",
-      "password": "sdkdkd",
-      "id": 2
-    },
-    {
-      "email": "",
-      "username": "",
-      "password": "",
+      "email": "san@gmail.com",
+      "username": "Moriah.Stanton",
+      "password": "xcxcxc",
       "id": 3
     },
     {
-      "email": "ssas",
-      "username": "xcxc",
-      "password": "sdsddsij",
+      "email": "s@gmail.com",
+      "username": "s",
+      "password": "s",
       "id": 4
     },
     {
+      "email": "aa@gmail.com",
+      "username": "aa",
+      "password": "aa",
       "id": 5
     },
     {
+      "email": "xcxcxcxc@gmail.com",
+      "username": "san",
+      "password": "san",
       "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "id": 11
-    },
-    {
-      "id": 12
-    },
-    {
-      "id": 13
-    },
-    {
-      "id": 14
-    },
-    {
-      "email": "",
-      "username": "",
-      "password": "",
-      "id": 15
-    },
-    {
-      "email": "sddc@fmdf.com",
-      "username": "san",
-      "password": "dksldk",
-      "id": 16
-    },
-    {
-      "email": "sddc@fmdf.com",
-      "username": "san",
-      "password": "dksldk",
-      "id": 17
-    },
-    {
-      "email": "sddc@fmdf.com",
-      "username": "san",
-      "password": "dksldk",
-      "id": 18
-    },
-    {
-      "email": "sddc@fmdf.com",
-      "username": "san",
-      "password": "dksldk",
-      "id": 19
-    },
-    {
-      "id": 20
-    },
-    {
-      "id": 21
-    },
-    {
-      "id": 22
-    },
-    {
-      "id": 23
-    },
-    {
-      "id": 24
-    },
-    {
-      "id": 25
-    },
-    {
-      "id": 26
-    },
-    {
-      "id": 27
-    },
-    {
-      "id": 28
-    },
-    {
-      "id": 29
-    },
-    {
-      "id": 30
-    },
-    {
-      "id": 31
-    },
-    {
-      "id": 32
-    },
-    {
-      "id": 33
-    },
-    {
-      "id": 34
-    },
-    {
-      "id": 35
-    },
-    {
-      "id": 36
-    },
-    {
-      "id": 37
-    },
-    {
-      "id": 38
-    },
-    {
-      "id": 39
-    },
-    {
-      "id": 40
     }
   ]
 }
