@@ -2,27 +2,15 @@
   "registration": [
     {
       "email": "san@gmail.com",
-      "username": "Moriah.Stanton",
-      "password": "xcxcxc",
-      "id": 3
-    },
-    {
-      "email": "s@gmail.com",
-      "username": "s",
-      "password": "s",
-      "id": 4
-    },
-    {
-      "email": "aa@gmail.com",
-      "username": "aa",
-      "password": "aa",
-      "id": 5
-    },
-    {
-      "email": "xcxcxcxc@gmail.com",
       "username": "san",
       "password": "san",
-      "id": 6
+      "id": 1
+    },
+    {
+      "email": "udhayakumar@softsuave.com",
+      "username": "udhaya",
+      "password": "softsuave#123",
+      "id": 2
     }
   ]
 }

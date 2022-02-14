@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import {registerClient} from '../../axios/Register';
 
 import {
   Input,
@@ -42,7 +42,7 @@ const user={
   username:username.value,
   password:password.value
 };
-createUser(user);
+const Exist=userExist(user);
 
 }
 else{
@@ -65,12 +65,30 @@ setTimeout(()=>{
  
 },1000);
 }
+
+const userExist= async(user)=>{
+await axios.get(`http://localhost:3001/registration?email=${user.email}`)
+.then( res => {
+  res=res.data;
+   if(res.length>0){
+     console.log("username already exist");
+     setText("Email already Exist");
+     setTimeout(()=>{
+      setText(null);
+    },1000);
+     return true;
+   }
+   else{
+    createUser(user);
+   }
+});
+}
 useEffect(()=>{
 
 },[setNewuser])
-useEffect(()=>{
+// useEffect(()=>{
 
-},[setText])
+// },[setText])
 
   return (
     <RegisterStyle>

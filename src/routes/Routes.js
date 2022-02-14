@@ -29,3 +29,14 @@ element:<Login/>
 }
 
 ]
+
+export const dashboardRoutes=[
+    {
+        path:'/dashboard',
+        element:<Dashboard/>
+    },
+    {
+        path:'/addFriend',
+        element:<AddFriend/>
+    }
+]

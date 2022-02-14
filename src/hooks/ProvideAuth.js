@@ -12,5 +12,8 @@ const authContext=createContext();
   );
 }
 
+function useAuth(){
+    return useContext(authContext);
+}
 
 export default ProvideAuth;

@@ -6,8 +6,11 @@ import Header from './Layouts/dashboard-Header/Header';
 import {DashboardStyle,MainContainer,MainContent} from './dashboard.style'
 import DashboardHome from './pages/DashboardHome/DashboardHome';
 import  NooneAround from '../../assets/image-dashboard/noonearound.PNG'
+import { routes } from '../../routes/Routes';
 
  function Dashboard() {
+
+
   return (
     (
     <DashboardStyle>
@@ -15,6 +18,7 @@ import  NooneAround from '../../assets/image-dashboard/noonearound.PNG'
       <AsideConversation/>
       <MainContainer>
       <Header/>
+
       <MainContent>
 
         <DashboardHome/>
