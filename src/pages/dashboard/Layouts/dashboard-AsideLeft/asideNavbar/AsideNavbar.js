@@ -10,11 +10,11 @@ import discord from '../../../../../assets/image-dashboard/discord.svg';
 function AsideNavbar() {
   return (
     <AsideNavbarStyle>
-    <ListStyle><img src={discord} alt="discord" width="100%"/></ListStyle>
-   <ListStyle><img src={newLine} width="100%" alt="slash n icon"/></ListStyle>
-   <ListStyle><AiOutlinePlusCircle size={45}/></ListStyle>
-   <ListStyle><IoMdCompass size={45}/></ListStyle>
-   <ListStyle><FiDownload size={45}/></ListStyle>
+    <ListStyle title="Home"><img src={discord} alt="discord" width="100%"/></ListStyle>
+   <ListStyle title="Name and Server"><img src={newLine} width="100%" alt="slash n icon" /></ListStyle>
+   <ListStyle title="Add a Server"><AiOutlinePlusCircle size={40}/></ListStyle>
+   <ListStyle title="Explore public Servers"><IoMdCompass size={40}/></ListStyle>
+   <ListStyle title="Download apps"><FiDownload size={40}/></ListStyle>
     </AsideNavbarStyle>
   )
 }

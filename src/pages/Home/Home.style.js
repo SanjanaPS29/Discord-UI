@@ -1,32 +1,48 @@
 import styled from "styled-components";
+import Friends1 from '../../assets/discord-background.svg';
 
 export const MainContainer=styled.div`
-display:flex;
-flex-direction:column;
+
 text-align:center;
+
+
+
 `
 
 export const Container=styled.div`
-justify-content:center;
-height:80vh;
-background-color:#404eed;
 
+align-items:center;
 `
 export const HomeStyle=styled.div`
- display:flex;
- flex-direction:column;
 background-color:#404eed;
-color:#fff;
-width:100%;
+background-image:url(${Friends1});
+background-size: cover;
+ 
+min-height:500px;
+  display:flex;
+  flex-direction:column;
+justify-content:center;
+align-items:center;
+padding-inline:1em;
+ color:#fff;
+
 div{
-    padding-top:1em;   
+
+    max-width:800px;  
 }
+
+@media only screen and (max-width: 200px){
+    {
+       font-size:2em;
+    }
+}
+
 `
 
 
 
 export const ButtonStyle=styled.div`
-text-align:center;
+// text-align:center;
 `
 
 export const Button=styled.button`
@@ -40,48 +56,76 @@ margin:1em;
 cursor:pointer;
 width:35%;
 
+
+@media only screen and (width:600px)
+width:10%;
+margin:0.5em;
+padding:0.5em;
+
 `
 
-export const Title=styled.div`
+export const Title=styled.h1`
 font-familty:Ginto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size:4em;
 font-style:normal;
 text-transform:uppercase;
 font-weight:700;
 
+text-align:center;
+
 ` 
 
 
 export const MainContent=styled.div`
-margin-inline:22em;
+// @media only screen and (min-width: 660px){
+//     {
+//        width:100%;
+//     }
+// }
 
 `
 
+
+export const ImageText=styled.div` 
+
+    text-align: -webkit-match-parent;
+    align-items:center;
+   
+
+     @media only screen and(max-width:900px){
+    max-width:80%
+    font-size:3em;
+     padding-inline:5em;
+     }
+`
+
 export const Invite=styled.div`
-display:flex;
-padding-top:6em;
-padding-bottom:6em;
-padding-inline:6em;
-align-items:center;
+ display:flex;
+ padding-top:2em;
+ padding-inline:4em;
+
+ align-items:center;
+
+ margin-inline:auto;
+ margin-bottom:1em;
 background-color:${props=> props.bg || "#fff"} ;
 
-
 div{
-    padding-inline: 6em;
-    text-align: initial
+    width:100%;
+   
 }
+
+
 
 `
 
 export const ReliableTech=styled.div`
-background-color:#f6f6f6;
-padding-inline:12em;
-align-items:center;
-text-align:center;
+ background-color:#f6f6f6;
+padding-inline:4em;
+ align-items:center;
+ text-align:center;
+ padding-bottom: 2em;
 
-h3{
-    font-size: 2em;
-}
 button{
     color: #fff;
     background-color: #5865f2;
@@ -89,9 +133,30 @@ button{
     padding-inline: 2em;
     padding: 1em 8em;
     border: none;
+    margin-top:1em;
 }
 
 div{
-    padding-inline:9em;
+    text-align:center;
+  margin-inline:auto;
+   max-width:80%;
 }
 `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,6 +5,7 @@ import ActiveNow from './Layouts/dashboard-AsideRight/activeNow/ActiveNow';
 import Header from './Layouts/dashboard-Header/Header';
 import {DashboardStyle,MainContainer,MainContent} from './Dashboard.style'
 import DashboardHome from './pages/DashboardHome/DashboardHome';
+import  NooneAround from '../../assets/image-dashboard/noonearound.PNG'
 
  function Dashboard() {
   return (

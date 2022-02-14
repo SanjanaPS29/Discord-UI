@@ -10,7 +10,7 @@ function Login() {
     <Container>
     <LoginStyle>
    <MainLogin/>
-    <QRcode/>
+   <QRcode/>
     </LoginStyle>
     </Container>
     </Background>

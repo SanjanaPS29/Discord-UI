@@ -8,6 +8,7 @@ import {
   RegisterButton,
   FormStyle,
   Title,
+  Container,
 } from "./Register.style";
 
 function Register() {
@@ -56,6 +57,7 @@ axios.post("http://localhost:3001/registration",Newuser)
 
   return (
     <RegisterStyle>
+    <Container>
       <FormStyle onSubmit={(e)=> onSubmit(e)}>
         <div>
           <Title>Create an account</Title>
@@ -70,6 +72,7 @@ axios.post("http://localhost:3001/registration",Newuser)
         <p style={{ color: "#00aff4" }}>Already have an account?</p>
       </FormStyle>
       <p style={{ color: "#00aff4" }}>{text}</p>
+      </Container>
     </RegisterStyle>
   );
 }

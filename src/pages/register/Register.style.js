@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import loginbackground from '../../assets/login-bg.PNG';
+import loginbackground from '../../assets/login-image.svg';
 
 export const Input=styled.input` 
 color:#fff;
@@ -19,16 +19,23 @@ margin:1em 0em;
 export const RegisterStyle=styled.div` 
 background-image:url(${loginbackground});
 align-item:center;
-padding:1em;
-border-radius:5px;
-padding-bottom:12.8%;
+display:flex;
+justify-content:center;
+align-items: center;
+height:100vh;
 background-size:cover;
+
 `
+
+export const Container=styled.div`
+max-width:500px;
+margin:1em;
+
+ `
 export const FormStyle=styled.form` 
 
 margin-inline: auto;
 background-color:#36393f;
-width:28%;
 background-color: #36393f;
 border-radius: 5px;
 padding: 2em;

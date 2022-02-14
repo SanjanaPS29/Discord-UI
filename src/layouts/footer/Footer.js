@@ -1,58 +1,68 @@
 import React from "react";
-import { FooterStyle, FlexBox, FooterLinks,MainFooter,PStyle,SocailMedia,Icon } from "./Footer.style";
+import { FooterStyle,LinkStyle,SingUp,SingUpStyle, FlexBox,MainLeftStyle, FooterLinks,MainFooter,PStyle,SocailMedia,Icon } from "./Footer.style";
 import UsaFlag from '../../assets/image-footer/usaFlag.png';
 import {AiOutlineYoutube,AiOutlineInstagram,AiOutlineFacebook} from 'react-icons/ai';
 import {FaTwitter} from 'react-icons/fa';
+
 
 function Footer() {
   return (
     <FooterStyle>
       <MainFooter>
-        <div>
+        <MainLeftStyle>
           <PStyle>Imagine a place</PStyle>
           <div><div><img src={UsaFlag} width="30%" alt="usa flag"/></div><div>English, USA</div></div>
       <SocailMedia><Icon><FaTwitter/></Icon><Icon><AiOutlineInstagram/></Icon><Icon><AiOutlineFacebook/></Icon><Icon><AiOutlineYoutube/></Icon></SocailMedia>
-        </div>
+        </MainLeftStyle>
         <FooterLinks>
           <FlexBox>
-            <div>Product</div>
-            <div>Download</div>
-            <div>Nitro</div>
-            <div>Status</div>
+            <LinkStyle href='/'>Product</LinkStyle>
+           <LinkStyle href ='#'>Download</LinkStyle>
+           <LinkStyle href='#'>Nitro</LinkStyle>
+           <LinkStyle href='#'>Status</LinkStyle>
           </FlexBox>
 
           <FlexBox>
-            <div>Company</div>
-            <div>About</div>
-            <div>Jobs</div>
-            <div>Branding</div>
-            <div>Newsroom</div>
+            <LinkStyle href='#'>Company</LinkStyle>
+           <LinkStyle href='#'>About</LinkStyle>
+            <LinkStyle href='#'>Jobs</LinkStyle>
+           <LinkStyle href='#'>Branding</LinkStyle>
+           <LinkStyle href='#'>Newsroom</LinkStyle>
           </FlexBox>
 
           <FlexBox>
-            <div>Resources</div>
-            <div>Collage</div>
-            <div>Support</div>
-            <div>Safety</div>
-            <div>Blog</div>
-            <div>Feedback</div>
-            <div>Develops</div>
-            <div>StramKit</div>
+            <LinkStyle href='#'>Resources</LinkStyle>
+            <LinkStyle href='#'>Collage</LinkStyle>
+            <LinkStyle href='#'>Support</LinkStyle>
+            <LinkStyle href='#'>Safety</LinkStyle>
+            <LinkStyle href='#'>Blog</LinkStyle>
+            <LinkStyle href='#'>Feedback</LinkStyle>
+           <LinkStyle href='#'>Develops</LinkStyle>
+            <LinkStyle href='#'>StramKit</LinkStyle>
           </FlexBox>
 
           <FlexBox>
-            <div>Policies</div>
-            <div>Terms</div>
-            <div>Privacy</div>
-            <div>Guidelines</div>
-            <div>Acknowledgements</div>
-            <div>Licenses</div>
-            <div>Moderation</div>
+           <LinkStyle href='#'>Policies</LinkStyle>
+           <LinkStyle href='#'>Terms</LinkStyle>
+           <LinkStyle href='#'>Privacy</LinkStyle>
+            <LinkStyle href='#'>Guidelines</LinkStyle>
+            <LinkStyle href='#'>Acknowledgements</LinkStyle>
+           <LinkStyle href='#'>Licenses</LinkStyle>
+           <LinkStyle href='#'>Moderation</LinkStyle>
           </FlexBox>
         </FooterLinks>
       </MainFooter>
       <div><hr/></div>
-      <div>Discord signup</div>
+      <SingUpStyle>
+      <div>
+       Discord 
+       </div>
+       <div>
+      <SingUp>
+
+     signup</SingUp>
+     </div>
+     </SingUpStyle>
     </FooterStyle>
   );
 }

@@ -6,7 +6,7 @@ flex-direction:column;
 background-color:#292b2f;
 padding-inline:1em;
 color:#fff;
-width:20%;
+width:200px;
 `
 
 export const Messages=styled.div` 
@@ -40,10 +40,8 @@ padding-botton:1em;
 
 export const InputSearch=styled.input.attrs({type:'text' ,placeholder:'Find or start a conversations'})` 
 margin-top:10px;
-padding:4px 6px;
+padding:0.5em;
 background-color:#202225;
 border:none;
-padding-right:4em;
-margin-right:0px;
 color:#fff;
 `
