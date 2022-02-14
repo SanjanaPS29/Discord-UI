@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {registerClient} from '../../axios/Register';
+import {Client} from '../../axios/Register';
 
 import {
   Input,
@@ -54,7 +54,7 @@ else{
 }
 
 const createUser=(user)=>{
-axios.post("http://localhost:3001/registration",user);
+  Client.post("/",user);
 setText("Thank you for Registering");
 setTimeout(()=>{
   console.log(Newuser);
@@ -67,7 +67,7 @@ setTimeout(()=>{
 }
 
 const userExist= async(user)=>{
-await axios.get(`http://localhost:3001/registration?email=${user.email}`)
+await Client.get(`?email=${user.email}`)
 .then( res => {
   res=res.data;
    if(res.length>0){

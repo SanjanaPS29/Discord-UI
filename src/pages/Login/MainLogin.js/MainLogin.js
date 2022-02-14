@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {registerClient} from '../../../axios/Register';
+import {Client} from '../../../axios/Register';
 
 import {
   MainForm,
@@ -25,7 +25,7 @@ function MainLogin() {
   const [text, setText] = useState();
 
   const b = async (id, password) => {
-    await axios.get("http://localhost:3001/registration/" + id).then((res) => {
+    await Client.get("/"+ id).then((res) => {
       const details = res.data;
       if (details.password == password) {
         setText("Successfully Logged In");
@@ -44,8 +44,8 @@ function MainLogin() {
 
   const checkUser = async (user) => {
     let id;
-    await axios
-      .get("http://localhost:3001/registration?email=" + user.email)
+    await Client
+      .get("?email=" + user.email)
       .then((res) => {
         res = res.data;
         const a = res[0].id;

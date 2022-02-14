@@ -32,11 +32,23 @@ element:<Login/>
 
 export const dashboardRoutes=[
     {
-        path:'/dashboard',
+        path:'/',
         element:<Dashboard/>
     },
     {
         path:'/addFriend',
         element:<AddFriend/>
-    }
+    },
+    {
+        path:'/blocked',
+        element:<AddFriend/>
+    },
+    {
+        path:'/pending',
+        element:<AddFriend/>
+    },
+    {
+        path:'/all',
+        element:<AddFriend/>
+    },
 ]

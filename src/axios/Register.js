@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const registerClient=axios.create({
+export const Client=axios.create({
     baseURLL:"http://localhost:3001/registration"
 });
