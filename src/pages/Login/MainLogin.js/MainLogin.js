@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import {Client} from '../../../axios/Register';
+import React, { useState,useContext } from "react";
+import { authContext , useAuth } from "../../../hooks/ProvideAuth";
 
 import {
   MainForm,
@@ -11,12 +11,18 @@ import {
   PLast,
   Error,
 } from "./MainLogin.style";
+
+
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react/cjs/react.development";
 import { useNavigate } from "react-router-dom";
 
 function MainLogin() {
+const {login} = useAuth();
+
+console.log('loggedIn '+ login)
+  const baseURL="http://localhost:3001/registration" 
   const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
@@ -25,13 +31,16 @@ function MainLogin() {
   const [text, setText] = useState();
 
   const b = async (id, password) => {
-    await Client.get("/"+ id).then((res) => {
+    await axios.get(baseURL+"/"+ id).then((res) => {
       const details = res.data;
       if (details.password == password) {
         setText("Successfully Logged In");
         setTimeout(() => {
           setText(null);
-          navigate(`/dashboard/`);
+           navigate('/dashboard');
+          // localStorage.setItem("username",details.email);
+          // props.history.push("/dashboard");
+
         }, 1000);
       } else {
         setText("User name or password is wrong");
@@ -44,8 +53,8 @@ function MainLogin() {
 
   const checkUser = async (user) => {
     let id;
-    await Client
-      .get("?email=" + user.email)
+    await axios
+    .get(baseURL+"?email=" + user.email)
       .then((res) => {
         res = res.data;
         const a = res[0].id;
@@ -63,7 +72,6 @@ function MainLogin() {
   };
   function onSubmit(e) {
     e.preventDefault();
-
     const { email, password } = e.target;
 
     if (email.value != "" && password.value != "") {
@@ -89,6 +97,8 @@ function MainLogin() {
 
   return (
     <FormArea>
+<button onClick={login}>Login</button>
+
       <h3>Welcome Back!</h3>
       <p>We're so excited to see you again!</p>
 

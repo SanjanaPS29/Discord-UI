@@ -14,13 +14,12 @@ import { dashboardRoutes } from '../../routes/Routes';
 
   return (
     (
-     // <Router>
+ 
     <DashboardStyle>
       <AsideNavbar/>
       <AsideConversation/>
       <MainContainer>
       <Header/>
-
       <MainContent>
       {/* <Routes>
 {
@@ -31,12 +30,10 @@ import { dashboardRoutes } from '../../routes/Routes';
  </Routes>  */}
 
         {/* <DashboardHome/> */}
-
         <ActiveNow/>
       </MainContent>
         </MainContainer> 
     </DashboardStyle>
-    // </Router>
     )
   );
 }
