@@ -4,6 +4,10 @@ import Register from "../pages/register/Register";
 import Dashboard from "../pages/dashboard/Dashboard";
 import AddFriend from "../pages/dashboard/pages/addFriend/AddFriend";
 import DashboardHome from "../pages/dashboard/pages/DashboardHome/DashboardHome";
+import AsideNavbar from "../pages/dashboard/Layouts/dashboard-AsideLeft/asideNavbar/AsideNavbar";
+import AsideConversation from "../pages/dashboard/Layouts/dashboard-AsideLeft/asideConversation/AsideConversation";
+import Header  from "../pages/dashboard/Layouts/dashboard-Header/Header";
+import ActiveNow from "../pages/dashboard/Layouts/dashboard-AsideRight/activeNow/ActiveNow";
 import {
     BrowserRouter as Router,
     Route,
@@ -11,16 +15,14 @@ import {
     Redirect,
     Link,
   } from "react-router-dom";
-import AsideNavbar from "../pages/dashboard/Layouts/dashboard-AsideLeft/asideNavbar/AsideNavbar";
-import AsideConversation from "../pages/dashboard/Layouts/dashboard-AsideLeft/asideConversation/AsideConversation";
-import Header  from "../pages/dashboard/Layouts/dashboard-Header/Header";
-import ActiveNow from "../pages/dashboard/Layouts/dashboard-AsideRight/activeNow/ActiveNow";
 
 
 export const UnauthenticatedRoutes=() =>{
     return(
      <Router>  
-             <Link to='/login'>Login</Link>
+
+         
+             {/* <Link to='/login'>Login</Link> */}
              <Routes>
                 {
                 routes?.map(({ path, element }) => (
@@ -41,10 +43,10 @@ export const AuthenticatedRoutes=()=>{
 
         <Router>
              <Header/>
-         <AsideNavbar/>
-        <AsideConversation/>
-        <ActiveNow/>
-            <Link to='/dashboard'>Dashboard</Link>
+         {/* <AsideNavbar/> */}
+        {/* <AsideConversation/> */}
+        {/* <ActiveNow/> */}
+            {/* <Link to='/dashboard'>Dashboard</Link> */}
 <Routes>
               {
               dashboardRoutes?.map(({ path, element }) => (

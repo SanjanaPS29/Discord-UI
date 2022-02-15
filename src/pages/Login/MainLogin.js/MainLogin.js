@@ -22,6 +22,7 @@ function MainLogin() {
 const {login} = useAuth();
 
 console.log('loggedIn '+ login)
+
   const baseURL="http://localhost:3001/registration" 
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -37,7 +38,10 @@ console.log('loggedIn '+ login)
         setText("Successfully Logged In");
         setTimeout(() => {
           setText(null);
-           navigate('/dashboard');
+      // action:    ()=>{
+      //       login();
+      //     }
+        //   navigate('/dashboard');
           // localStorage.setItem("username",details.email);
           // props.history.push("/dashboard");
 
@@ -97,7 +101,7 @@ console.log('loggedIn '+ login)
 
   return (
     <FormArea>
-<button onClick={login}>Login</button>
+{/* <button onClick={login}>Login</button> */}
 
       <h3>Welcome Back!</h3>
       <p>We're so excited to see you again!</p>
@@ -109,7 +113,7 @@ console.log('loggedIn '+ login)
           <Label>Password</Label>
           <Input type="password" name="password"></Input>
           <PStyle>Forgot your password?</PStyle>
-          <LoginButton>Login</LoginButton>
+          <LoginButton onClick={login}>Login</LoginButton>
 
           <Error>{text}</Error>
         </>

@@ -22,8 +22,6 @@ const {loggedIn} = useAuth();
 
 console.log(`loggedIn  ${loggedIn}`)
   return loggedIn?<AuthenticatedRoutes/>:<UnauthenticatedRoutes/>;
-  
-  
  }
  //(
     // <Router>

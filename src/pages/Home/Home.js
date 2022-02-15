@@ -16,7 +16,6 @@ function Home() {
   <HomeStyle>
   <div>
  <MainContent>
-
      <Title>Imagin a place...</Title>
    <p>...where you can belong to a school club, a gaming group, or a worldwide art community.</p>
   <p> where just you and a handful of friends can spend time together. A place that makes it easy to talk every day and hang out more often.</p>
@@ -28,7 +27,6 @@ function Home() {
  </div>
   </HomeStyle>
   </Container>
- 
   <Container>
 <Invite>
 <div><img src={InviteFriends} alt="Invite Friends" width="100%"/></div>

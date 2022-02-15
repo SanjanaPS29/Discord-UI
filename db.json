@@ -2,7 +2,7 @@
   "registration": [
     {
       "email": "san@gmail.com",
-      "username": "san",
+      "username": "n",
       "password": "san",
       "id": 1
     },
@@ -13,16 +13,60 @@
       "id": 2
     },
     {
-      "email": "udhayakumar@softsuave.co",
-      "username": "xcxc",
-      "password": "san",
-      "id": 3
-    },
-    {
       "email": "san29@gmail.com",
       "username": "ssss",
       "password": "san",
       "id": 4
+    },
+    {
+      "email": "san@gmail.com",
+      "username": "s",
+      "password": "san",
+      "id": 1
+    },
+    {
+      "email": "udhayakumar@softsuave.com",
+      "username": "udhay",
+      "password": "softsuave#123",
+      "id": 2
+    },
+    {
+      "email": "san29@gmail.com",
+      "username": "sanvi",
+      "password": "san",
+      "id": 4
+    },
+    {
+      "email": "san@gmail.com",
+      "username": "mahe",
+      "password": "san",
+      "id": 1
+    },
+    {
+      "email": "udhayakumar@softsuave.com",
+      "username": "gana",
+      "password": "softsuave#123",
+      "id": 2
+    },
+    {
+      "email": "san29@gmail.com",
+      "username": "anju",
+      "password": "san",
+      "id": 4
     }
-  ]
+  ],
+  "friendRequestSend": [
+    {
+      "username": "san",
+      "id": 1
+    },
+    {
+      "username": "n",
+      "id": 2
+    }
+  ],
+  "messages": [],
+  "friends": [],
+
+  "acceptedFriendRequest":[]
 }
