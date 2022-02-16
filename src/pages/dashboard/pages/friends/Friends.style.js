@@ -1,24 +1,6 @@
 import styled from "styled-components";
 
 
-export const PendingStyle=styled.div`
-display:flex;
-flex-direction:column;
-padding:2em;
-width:100%;
-justify-content: flex-start;
-
-button{
-    padding:0.3em 1em;
-    border-radius:4px;
-    border:none;
-    color:#fff;
-    background-color:#3a6d3a;
-    cursor:pointer;
-}
-
-`
-
 export const Content=styled.ul` 
 list-style:none;
 margin-top:1em;
@@ -39,5 +21,9 @@ button{
     cursor:pointer;
     margin:1px;
 }
-
 `
+
+export const FriendStyle=styled.div`
+padding:1em;
+width: -webkit-fill-available;
+` 

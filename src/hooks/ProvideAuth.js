@@ -10,26 +10,26 @@ const AuthContext = createContext({});
   };
 
   const [loggedIn,setLoggnedIn]=useState(false);
-  // useEffect(()=> {
-  //   // pull savd login state from local store/ 
-  //   setTimeout(()=>{ setLoggnedIn(true);},2000)
-  // },[]);
-  
-
+ const[username,setUsername]=useState();
 const login=()=>{
 // sleep(2000).then(() => setLoggnedIn(true));
-setTimeout(()=>{ setLoggnedIn(true);},2000)
+setTimeout(()=>{ setLoggnedIn(true);
+console.log(username);
+},2000)
 }
 
 const logout=()=>{
  
-  setTimeout(() => { setLoggnedIn(false); }, 2000);
+  setTimeout(() => { setLoggnedIn(false);
+  setUsername(null); }, 2000);
 }
 
 const authContextValue={
   login,
   loggedIn,
-  logout
+  logout,
+  setUsername,
+  username
 };
 
   return (

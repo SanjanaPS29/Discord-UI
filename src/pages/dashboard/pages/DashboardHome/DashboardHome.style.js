@@ -4,8 +4,8 @@ import  NooneAround from '../../../../assets/image-dashboard/no_online_friends.s
 export const DashboardHomeStyle=styled.div`
 padding:0em;
 align-items:center;
-width: -webkit-fill-available;
-height:-webkit-fill-available;
+ width: -webkit-fill-available;
+// height:-webkit-fill-available;
 background-color:#4f545c;
 color:#8e9297;
 

@@ -8,14 +8,19 @@ import AsideNavbar from "../pages/dashboard/Layouts/dashboard-AsideLeft/asideNav
 import AsideConversation from "../pages/dashboard/Layouts/dashboard-AsideLeft/asideConversation/AsideConversation";
 import Header  from "../pages/dashboard/Layouts/dashboard-Header/Header";
 import ActiveNow from "../pages/dashboard/Layouts/dashboard-AsideRight/activeNow/ActiveNow";
+import {DashboardStyle,MainContainer,MainContent,MainContent1,MainContent2} from '../pages/dashboard/dashboard.style';
+import Pending from "../pages/dashboard/pages/pending/Pending";
+
 import {
     BrowserRouter as Router,
     Route,
     Routes,
     Redirect,
     Link,
+    Navigate
   } from "react-router-dom";
-
+import Friends from "../pages/dashboard/pages/friends/Friends";
+import Message from "../pages/dashboard/pages/message/Message";
 
 export const UnauthenticatedRoutes=() =>{
     return(
@@ -42,18 +47,31 @@ export const AuthenticatedRoutes=()=>{
     return (
 
         <Router>
-             <Header/>
-         {/* <AsideNavbar/> */}
-        {/* <AsideConversation/> */}
-        {/* <ActiveNow/> */}
-            {/* <Link to='/dashboard'>Dashboard</Link> */}
+       
+    <DashboardStyle>
+      <AsideNavbar/>
+      <AsideConversation/>
+      <MainContainer>
+      <Header/>
+      <MainContent>
+          <MainContent1>
 <Routes>
               {
+                
               dashboardRoutes?.map(({ path, element }) => (
                 <Route key={path} exact path={path} element={element} />
               ))}
+                <Route path="/login" element={<Navigate replace to="/dashboard" />} />
 
               </Routes>
+              </MainContent1>
+              <MainContent2>
+     <ActiveNow/>
+     </MainContent2>
+      </MainContent>
+        </MainContainer>
+    </DashboardStyle>
+
         </Router>
     )
 }
@@ -73,43 +91,41 @@ element:<Login/>
     path:'/register',
     element:<Register/>
 },
-// {
-//     path:'/addFriend',
-//     element:<AddFriend/>
-// },
-// {
-//     path:'/blocked',
-//     element:<AddFriend/>
-// },
-// {
-//     path:'/pending',
-//     element:<AddFriend/>
-// },
-// {
-//     path:'/all',
-//     element:<AddFriend/>
-// },
+
 ]
 
 export const dashboardRoutes=[
+    // {
+    //     path:'/dashboard',
+    //     element:<Dashboard/>
+    // },
     {
         path:'/dashboard',
-        element:<Dashboard/>
+        element:<DashboardHome/>
+    },
+    // {
+    //     path:'/blocked',
+    //     element:<AddFriend/>
+    // },
+    {
+        path:'/friends',
+        element:<Friends/>
+    },
+    {
+        path:'/message',
+        element:<Message/>
+    },
+    {
+        path:'/message/:id',
+        element:<Message/>
+    },
+
+    {
+        path:'/pending',
+        element:<Pending/>
     },
     {
         path:'/addFriend',
-        element:<AddFriend/>
-    },
-    {
-        path:'/blocked',
-        element:<AddFriend/>
-    },
-    {
-        path:'/pending',
-        element:<AddFriend/>
-    },
-    {
-        path:'/all',
         element:<AddFriend/>
     },
 ]

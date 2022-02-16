@@ -1,5 +1,7 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext,useCallback  } from "react";
 import { authContext , useAuth } from "../../../hooks/ProvideAuth";
+import {AiOutlineEye} from 'react-icons/ai';
+
 
 import {
   MainForm,
@@ -10,8 +12,8 @@ import {
   PStyle,
   PLast,
   Error,
+  PasswordInput
 } from "./MainLogin.style";
-
 
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -19,16 +21,22 @@ import { useEffect } from "react/cjs/react.development";
 import { useNavigate } from "react-router-dom";
 
 function MainLogin() {
-const {login} = useAuth();
+const {login,setUsername} = useAuth();
+
 
 console.log('loggedIn '+ login)
 
-  const baseURL="http://localhost:3001/registration" 
+  const baseURL="http://localhost:3001/registration"
   const navigate = useNavigate();
+const [showPassword,setShowPassword]=useState(false);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+
+  const loginUser = useCallback((u) => setUsername(u), []);
+  const log = useCallback(() => login(), []);
   const [text, setText] = useState();
 
   const b = async (id, password) => {
@@ -38,13 +46,8 @@ console.log('loggedIn '+ login)
         setText("Successfully Logged In");
         setTimeout(() => {
           setText(null);
-      // action:    ()=>{
-      //       login();
-      //     }
-        //   navigate('/dashboard');
-          // localStorage.setItem("username",details.email);
-          // props.history.push("/dashboard");
-
+          loginUser(details.username);
+          log();
         }, 1000);
       } else {
         setText("User name or password is wrong");
@@ -97,6 +100,15 @@ console.log('loggedIn '+ login)
     }
   }
 
+  const handlePassword=()=>{
+    if(showPassword){
+      setShowPassword(false);
+    }
+    else{
+      setShowPassword(true);
+    }
+  }
+
   useEffect(() => {}, []);
 
   return (
@@ -105,15 +117,15 @@ console.log('loggedIn '+ login)
 
       <h3>Welcome Back!</h3>
       <p>We're so excited to see you again!</p>
-
+      {/* {values.showPassword ? "text" : "password"}  */}
       <MainForm onSubmit={(e) => onSubmit(e)}>
         <>
           <Label>Email</Label>
           <Input type="text" name="email"></Input>
           <Label>Password</Label>
-          <Input type="password" name="password"></Input>
+         <PasswordInput><input type={showPassword ? "text": "password"} name="password" ></input><AiOutlineEye onClick={(e)=>handlePassword()}/></PasswordInput>
           <PStyle>Forgot your password?</PStyle>
-          <LoginButton onClick={login}>Login</LoginButton>
+          <LoginButton>Login</LoginButton>
 
           <Error>{text}</Error>
         </>

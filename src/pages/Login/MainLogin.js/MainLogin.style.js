@@ -29,6 +29,23 @@ export const Input=styled.input`
  margin-bottom:1em;
  color:#fff;
  padding:0.5em;
+ border:none;
+ width: -webkit-fill-available;
+`
+export const PasswordInput=styled.div`
+display:flex;
+justify-content: space-between;
+background-color:#2f3136;
+align-items: center;
+margin-bottom:1em;
+padding: 0.5em;
+input{
+    background-color:#2f3136;
+    color:#fff;
+    border:none;
+    width: -webkit-fill-available;
+    margin-right:1em;
+}
 `
 
 export const Label=styled.label` 

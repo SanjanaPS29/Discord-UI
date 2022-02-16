@@ -14,8 +14,6 @@ import {useAuth} from './hooks/ProvideAuth';
 import {UnauthenticatedRoutes,AuthenticatedRoutes} from './routes/Routes';
 
 
-
-
  export default function App() {
 
 const {loggedIn} = useAuth();

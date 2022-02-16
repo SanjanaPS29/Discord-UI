@@ -8,6 +8,7 @@ width:100%;
 margin-bottom:2em;
 margin:1em 0em;
 padding:.8em 0em;
+border:none;
 `
 
 export const Label=styled.label` 
@@ -68,4 +69,22 @@ font-weight:500;
 margin-bottom:5px;
 height:1em;
 text-align:center;
+`
+
+export const PasswordInput=styled.div`
+display:flex;
+justify-content: space-between;
+background-color:#2f3136;
+align-items: center;
+margin-bottom:1em;
+margin-top:1em;
+padding: 0.5em;
+color:#fff;
+input{
+    background-color:#2f3136;
+    color:#fff;
+    border:none;
+    width: -webkit-fill-available;
+    margin-right:1em;
+}
 `

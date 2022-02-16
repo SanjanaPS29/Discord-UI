@@ -25,6 +25,12 @@ export const ListStyle=styled.li`
 list-style:none;
 color:${props=> props.color || "#fff"};
 cursor:pointer;
+
+
+a{
+    color:#fff;
+    text-decoration:none;
+}
 `
 
 export const Button=styled.button` 

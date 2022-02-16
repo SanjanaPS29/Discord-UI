@@ -1,5 +1,8 @@
 import axios from "axios";
 
 export const Client=axios.create({
-    baseURLL:"http://localhost:3001/registration"
+    baseURL:"http://localhost:3001/"
 });
+
+
+export const baseURL="http://localhost:3001/registration";

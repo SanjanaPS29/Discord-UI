@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {AiOutlineEye} from 'react-icons/ai';
 // import {Client} from '../../axios/Register';
 
 import {
@@ -12,12 +13,14 @@ import {
   Title,
   Container,
   Error,
+  PasswordInput
 } from "./Register.style";
 
 
 function Register() {
   const baseURL="http://localhost:3001/registration" 
 const navigate = useNavigate();
+const [showPassword,setShowPassword]=useState(false);
 
   const [Newuser, setNewuser] = useState({
     // email: "",
@@ -33,11 +36,7 @@ const [disable,setDisable]=useState(false);
 const { email,username,password } = e.target;
 
 if(email.value !='' && username.value!='' && password.value!=''){
-  // setNewuser({
-  //   email:email.value,
-  //   username:username.value,
-  //   password:password.value
-  // });
+
 const user={
   email:email.value,
   username:username.value,
@@ -84,6 +83,15 @@ await axios.get(baseURL+`?email=${user.email}`)
    }
 });
 }
+const handlePassword=()=>{
+  if(showPassword){
+    setShowPassword(false);
+  }
+  else{
+    setShowPassword(true);
+  }
+}
+
 useEffect(()=>{
 
 },[setNewuser])
@@ -104,11 +112,10 @@ useEffect(()=>{
         <Label>Username</Label>
         <Input type="text" name="username"></Input>
         <Label>Password</Label>
-        <Input type="password" name="password" ></Input>
+        <PasswordInput><input type={showPassword ? "text": "password"} name="password" ></input><AiOutlineEye onClick={(e)=>handlePassword()}/></PasswordInput>
         <RegisterButton disabled={disable}>Continue</RegisterButton>
         <p style={{ color: "#00aff4" }}>Already have an account?</p>
 
-      
       </FormStyle>
 
       </Container>

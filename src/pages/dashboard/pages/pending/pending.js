@@ -1,21 +1,38 @@
-import React from 'react'
-import { useEffect } from 'react/cjs/react.development'
+import React,{useState} from 'react'
+import { useEffect } from 'react';
+import {PendingStyle,Content} from './Pending.style';
+import {baseURL,Client} from '../../../../axios/Register';
 
 
-function pending() {
+function Pending() {
+const [requestFriend,setRequestFriend]=useState();
 
-    useEffect(()=>{
+  useEffect(()=>{
+  Client.get("/friendRequest")
+  .then(res=>{
+    const data=res.data;
+      setRequestFriend(data);
 
-    },[])
-  return (
       
-    <div>pending
-
-
-    </div>
+  });
+  console.log(requestFriend);
+  },[])
+ 
+  return (
+    <PendingStyle>
+      Sended Friend Request
+      <Content>
+      {
+         requestFriend?.map((friend)=>(
+           <li key={friend.id}>{friend.username}<button>request Sended</button></li>
+         ))
+      }
+      </Content>
+    </PendingStyle>
   )
+ 
 }
 
 
 
-export default pending
+export default Pending

@@ -6,7 +6,7 @@ padding-inline:0.5em;
 padding-top:1em;
 background-color:#4f545c;
 color:#fff;
-width:45%;
+// width:45%;
 border-left:1px solid #8e9297;
 `
 

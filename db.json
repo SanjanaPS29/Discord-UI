@@ -2,7 +2,7 @@
   "registration": [
     {
       "email": "san@gmail.com",
-      "username": "n",
+      "username": "san",
       "password": "san",
       "id": 1
     },
@@ -17,18 +17,6 @@
       "username": "ssss",
       "password": "san",
       "id": 4
-    },
-    {
-      "email": "san@gmail.com",
-      "username": "s",
-      "password": "san",
-      "id": 1
-    },
-    {
-      "email": "udhayakumar@softsuave.com",
-      "username": "udhay",
-      "password": "softsuave#123",
-      "id": 2
     },
     {
       "email": "san29@gmail.com",
@@ -49,24 +37,70 @@
       "id": 2
     },
     {
-      "email": "san29@gmail.com",
-      "username": "anju",
+      "email": "sanjana@gmail.com",
+      "username": "san",
       "password": "san",
-      "id": 4
+      "id": 5
+    },
+    {
+      "email": "sanvi@gmail.com",
+      "username": "sanvi",
+      "password": "san",
+      "id": 6
     }
   ],
-  "friendRequestSend": [
+  "friendRequest": [
     {
-      "username": "san",
+      "username": "sanvi",
+      "requestedUsername":"san",
       "id": 1
     },
     {
-      "username": "n",
+      "username": "udhaya",
+      "requestedUsername":"san",
       "id": 2
+    },
+    {
+      "username": "sanvi",
+      "requestedUsername":"udhaya",
+      "id": 3
     }
   ],
   "messages": [],
-  "friends": [],
-
-  "acceptedFriendRequest":[]
+  "friends": [
+    {
+      "status": true,
+      "username": "san",
+      "friendId": 1,
+      "id": 4
+    },
+    {
+      "status": true,
+      "username": "sanvi",
+      "friendId": 2,
+      "id": 1
+    }
+  ],
+  "acceptedFriendRequest": [
+    {
+      "username": "san",
+      "id": 4
+    },
+    {
+      "username": "sanvi",
+      "id": 1
+    }
+  ],
+  "conversation": [
+    {
+      "message": "hello",
+      "senderName": "san",
+      "id": 1
+    },
+    {
+      "message": "how are you",
+      "senderName": "sanvi",
+      "id": 2
+    }
+  ]
 }
