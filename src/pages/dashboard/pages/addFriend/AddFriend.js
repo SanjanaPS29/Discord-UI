@@ -9,13 +9,18 @@ import {
 } from "./AddFriend.style";
 import { useEffect, useState } from "react/cjs/react.development";
 import axios from "axios";
+import {useAuth} from '../../../../hooks/ProvideAuth';
+import {Client} from '../../../../axios/Register';
 
 function AddFriend() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState([]);
-const [username,setUsername]=useState("");
+
+ const [addFriend,setaddFriend]=useState("");
 const [friendStatus,setFriendStatus]=useState(false);
 const [text,setText]=useState();
+const {username}=useAuth();
+
 
   const getData = async () => {
     await axios.get("http://localhost:3001/registration").then((res) => {
@@ -27,9 +32,8 @@ const [text,setText]=useState();
 
   const filterData = (searchTerm) => {
     const search = searchTerm.target.value;
-    setUsername(search);
-    console.log(searchTerm.target.value);
-     
+    setaddFriend(search);
+   
     if (search === "") {
       setSearch([]);
     } else {
@@ -45,8 +49,13 @@ const [text,setText]=useState();
 
     const { search } = e.target;
     console.log(e.target);
-    const sendReq = { username: search.value };
-    axios.post("http://localhost:3001/friendRequest", sendReq);
+    const sendReq = { 
+      "sourceUsername": username,
+      "targetUsername": search.value,
+      "status":"sendRequest"
+    };
+    console.log(sendReq);
+    Client.post("/friendRequest", sendReq);
    setText("Successfully Friend Request Send");
     setTimeout(()=>{
 setText(null);
@@ -55,11 +64,11 @@ setText(null);
 
   useEffect(() => {
     getData();
-  }, [setData, setSearch,setUsername]);
+  }, [setData, setSearch,setaddFriend]);
 
 
-const addUsername=user=>{
-  setUsername(user.username);
+const add=user=>{
+  setaddFriend(user.username);
 console.log(user);
 }
 
@@ -82,7 +91,7 @@ console.log(user);
           <Input
             type="text"
             name="search"
-         value={username}
+         value={addFriend}
             onChange={(e) => filterData(e)}
           >    
           </Input>
@@ -91,9 +100,9 @@ console.log(user);
       </SearchStyle>
         
       <SearchList>
-          
+    
         {search?.map((user) => (
-          <><li key={user.id}>{user.username} <button onClick={()=>addUsername(user)}>Add</button></li></>
+          <React.Fragment key={user.id}><li>{user.username} <button onClick={()=>add(user)}>Add</button></li></React.Fragment>
         ))}
                <p>{text}</p>       
       </SearchList>

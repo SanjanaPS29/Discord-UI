@@ -116,7 +116,7 @@ export const dashboardRoutes=[
         element:<Message/>
     },
     {
-        path:'/message/:id',
+        path:'/message/:Id',
         element:<Message/>
     },
 

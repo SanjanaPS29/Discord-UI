@@ -1,7 +1,6 @@
 import React, { useState,useContext,useCallback  } from "react";
-import { authContext , useAuth } from "../../../hooks/ProvideAuth";
+import { useAuth } from "../../../hooks/ProvideAuth";
 import {AiOutlineEye} from 'react-icons/ai';
-
 
 import {
   MainForm,
@@ -109,7 +108,10 @@ const [showPassword,setShowPassword]=useState(false);
     }
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    loginUser("san");
+    log();
+  }, []);
 
   return (
     <FormArea>

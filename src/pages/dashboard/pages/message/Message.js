@@ -14,17 +14,94 @@ import { useParams } from "react-router-dom";
 import { useAuth } from "../../../../hooks/ProvideAuth";
 
 function Message() {
-  const [message, setMessage] = useState("");
-  const [data, setData] = useState();
-  let { id } = useParams();
+  const [message, setMessage] = useState('');
+
+  const [data, setData] = useState([]);
+  var { friendName } = useParams();
   const { username } = useAuth();
+  const [generateId,setGeneratedId]=useState();
+  const [messageNumber,setMessageNumber]=useState('');
+const [message_id,setMessageId]=useState('')
+
+ 
+  const getId=()=>{
+    const user=[username,friendName];
+    console.log(username)
+    const id=user.sort();
+    const NewId=id[0]+"$"+id[1];
+    console.log(NewId)
+    setGeneratedId(NewId);
+if(NewId!=undefined)
+    get();
+  }
+
+
+const get=async()=>
+{  
+  var msg;
+  await Client.get(`/chatDetails?chatId=${generateId}`)
+.then(res=>{
+ msg=res.data[0];
+})
+if(msg.messages!=undefined){
+  setMessageNumber(msg.messages);
+  console.log(messageNumber);
+messageNumber.forEach(id => {
+  GetIndividualMessage(id);
+});
+}
+
+}
+
+  // const getAllMessage=async(data)=>{
+ 
+  //   const allmessage=[];
+  //   console.log(data);
+  //   data.forEach(element => {
+   
+  //   // setData(allmessage);
+  //   }
+  //   )}
+
+
+const GetIndividualMessage=async(element)=>{
+  
+  await Client.get(`/messages?messageId=${element}`)
+  .then(res=>{
+    const data=res.data;
+     let  d={...data}; 
+     console.log(data)
+      setData([...data,data.messages]);
+
+
+
+  //   const msg=res.data;
+  // setData(data=>[...data,msg[0]]); 
+  })
+}
 
   const sendMessage = async (e) => {
-    await Client.post("/conversation", {
-      message: message,
-      senderName: username,
-    });
-    getConversation();
+
+    const messageDetails={
+      "message":message,
+      "senderName":username,
+      "receiverName":friendName
+    }
+
+await Client.post("/messages",messageDetails);
+
+// const chatDetails={
+//   "chat_id":generateId,
+//   "messages_id": [...messageNumber,11]
+// }
+// await Client.patch(`/chatDetails/${generateId}`,chatDetails)
+
+    // await Client.post("/conversation", {
+    //   message: message,
+    //   senderName: username,
+    // });
+    // getConversation();
+    get();
     setMessage("");
   };
 
@@ -36,15 +113,19 @@ function Message() {
   const getConversation = () => {
     Client.get("/conversation").then((res) => {
       const data = res.data;
-      console.log(data);
       setData(data);
     });
   };
 
   useEffect(() => {
+    
     console.log(username);
-    getConversation();
-  }, [setMessage, setData]);
+
+   // getConversation();
+    getId();
+   
+    // getAllMessage();
+  }, [setData,setGeneratedId,setMessageNumber]);
 
   return (
     <MessageStyle>
@@ -61,7 +142,7 @@ function Message() {
       </MessageBox>
       <ConversationStyle>
         {data?.map((msg) => (
-          <React.Fragment key={msg.id}>
+          <React.Fragment key={msg.messageId}>
             <p>{msg.senderName}</p>
             <li>{msg.message}</li>
           </React.Fragment>
