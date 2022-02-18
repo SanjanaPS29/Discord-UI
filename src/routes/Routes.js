@@ -57,7 +57,7 @@ export const AuthenticatedRoutes=()=>{
           <MainContent1>
 <Routes>
               {
-                
+               
               dashboardRoutes?.map(({ path, element }) => (
                 <Route key={path} exact path={path} element={element} />
               ))}
@@ -116,7 +116,7 @@ export const dashboardRoutes=[
         element:<Message/>
     },
     {
-        path:'/message/:Id',
+        path:'/message/:friendId/:friendName',
         element:<Message/>
     },
 

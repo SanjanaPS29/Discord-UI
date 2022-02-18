@@ -5,111 +5,214 @@ import {useNavigate} from 'react-router-dom'
 import { useAuth } from "../../../../hooks/ProvideAuth";
 function Friends() {
 
-    const [friends,setfriends]=useState();
-    const [acceptFriend,setAcceptFriend]=useState();
-    const[receivedRequest,setReceivedRequest]=useState();
-   const [text,setText]=useState();
-
+    const [friends,setFriends]=useState();
+   const[receivedRequest,setReceivedRequest]=useState();
+   const [text,setText]=useState();
 const navigate=useNavigate();
 const {username}=useAuth();
-
-
-
-
-
+const [idgen,setIdgen]=useState();
 
 const chatStart=friend=>{
 console.log(friend);
-// const id=friend.id;
-navigate(`/message/${friend.friendName}`)
+navigate(`/message/${friend.friendId}/${friend.friendName}`)
+}
+
+const generateId=(name)=>{
+    const user=[username,name];
+    console.log(username)
+    const id=user.sort();
+    const genId=id[0]+"$"+id[1];
+    console.log(genId);
+ return genId;
+}
+
+const FirstFriend=(friend1,friend2)=>{
+    console.log(friend1 +" "+friend2+" "+idgen);
+const firstFriendrequest={
+    "username":friend1,
+    "friends":[ {
+        "friendName":friend2,
+         "friendId": idgen,
+          "status": "friend"
+    }
+ ]
+ 
+}
+console.log(firstFriendrequest);
+return firstFriendrequest;
+}
+
+
+const postNewFriend=(f)=>{
+    console.log("new"+f);
+   Client.post(`/friends`,f)
+}
+
+
+const updateFriends=async(data,name)=>{
+
+let newFriend= {
+    "friendName":name,
+      "friendId": idgen,
+      "status": "friend"
+}
+let updatedData=data.push(newFriend);
+let newData={"friends":updatedData};
+await Client.patch(`/friends/username=${name}`,newData);
+}
+
+
+const AddNewFriend=async(name)=>{
+    // var info;
+    // var id;
+    // await Client.get(`/friends?username=${name}`)
+    //     .then(res=>{
+    //         let info=res.data;
+    //       if(info==[]){
+          const newF= FirstFriend(name);
+          postNewFriend(newF);
+          
+        //   else{
+        //    info=[...info];
+        //   console.log(info);
+        //   updateFriends(info,name);
+        //   }
+        // })
+}
+
+const addFriend=(friend)=>{
+console.log(friend)
+// const genId=Idgenerate;
+const f1=friend.sourceUsername;
+const f2=friend.targetUsername;
+
+checkUserFriend(f1);
+AddUser(data,f1);
+
+AddNewFriend(f1,f2);
+AddNewFriend(f2,f1);
+    
+}
+
+
+const AddUser=(data,f1)=>{
+    await Client.get(`/friends?username=${f1}`)
+      .then(res=>{
+            let data=res.data.length;
+        console.log(data)
+        if(data.length != 0){
+            data=[...data];
+            data=data.friends;
+           updateFriends(data,f1);
+            } 
+
+        else{
+            
+        }
+    }
+        ); 
+
+
+
+
+    
+}
+
+
+const checkUserFriend=async(f)=>{
+
 
 }
 
-const addUsername=friend=>{
-console.log(friend);
-}
-
-const handleFriendRequest=()=>{
-  Client.get(`/friendRequest?username=${username}`)
-  .then(res=>{
-   const data=res.data;
-   setfriends(data);
-  })
-  }
-
-
-const handleUnFriend=async (friend)=>{
-//   const newData={status:false}
-// await Client.patch(`/friends/${friend.id}`,newData)
-}
 
 const acceptFriendRequest=(friend)=>{
-  const updatedValue={statusId:"Friend",status:true}
-Client.patch(`/friendRequest/${friend.id}`,updatedValue);
+   const val= generateId(friend.sourceUsername);
+   setIdgen(val);
+   console.log(idgen);
+   console.log(friend)
+const updatedValue={"status":"accepted"};
+// Client.patch(`/friendRequest/${friend.id}`,updatedValue);
 setText("Friend request is accepted");
-// Client.put('/friends/id');
+addFriend(friend);
 setTimeout(()=>{
 setText(null);
+//Client.patch(`/friendRequest/${friend.id}`,updatedValue);
 },2000)
-// Client.post('/friends,')
+
+getReceivedRequest();
+
 }
 
 const getFriend=async()=>{
- await Client.get(`/friends?username=${username}`)
-  .then(res=>{
-    const data=res.data;
-     let  d={...data}; 
-     console.log(data[0].friends)
-      setfriends(data[0].friends);
-});
+    await Client.get('friends')
+    .then(res=>{
+        let data=res.data;
+        if(data!=[]){
+            getData();
+        }
+    })
 
-
-
-// Client.get('/friendRequest?status=true&statusId=Friend&sourceUsername')
 }
 
-const getReceivedRequest=()=>{
-  Client.get(`/friendRequest?targetUsername=${username}`)
-   .then(res=>{
-     const data=res.data;
-     setReceivedRequest(data);
-   })
-    }
-  useEffect(()=>{
-    getReceivedRequest();
-    setTimeout(() => {
-      getFriend();
-    }, 2000);
-   
-  },[setfriends])
-  
+const getUserFriend= async(name)=>{
+    await Client.get(`/friends?username=${name}`)
+      .then(res=>{
+        const data=res.data.length;
+    console.log(data)
+    if(data.length != 0)
+        setFriends(data.friends);
+        } 
+    );
+}
 
-  return (
-    <FriendStyle>Friends
-    <Content>
-      {
-         friends?.map((friend,index)=>(
-           <React.Fragment key={index}>
-            <li >{friend}</li>
-            <div><button onClick={()=>chatStart()}>Chat</button><button onClick={(e)=>handleUnFriend(friend)}>unFriend</button></div>
-            </React.Fragment>
-         ))
-      }
-      </Content>
+const getData=async()=>{
+    await Client.get(`/friends`)
+    .then(res=>{
+        let data=res.data;
+        if(data!=[]){
+            getUserFriend();
+        }
+    })
 
-      <Content>
-        Accept Request
-        {
+}
+
+const getReceivedRequest=async()=>{
+  await Client.get(`/friendRequest?targetUsername=${username}&status=sendedRequest`)
+   .then(res=>{
+     const data=res.data;
+if(data !=[])
+     setReceivedRequest(data);
+   })
+    }
+  useEffect(()=>{
+    getReceivedRequest();
+      getFriend(username);
+   
+  },[setIdgen,setFriends,setReceivedRequest])
+  
+
+  return (
+    <FriendStyle>Friends
+    <Content>
+      {
+         friends?.map((friend,index)=>( 
+            <li key={index}>{friend.friendName}
+            <div><button onClick={()=>chatStart(friend)}>Chat</button><button>unFriend</button></div>
+            </li>
+         ))
+      }
+      </Content>
+      <Content>
+        Accept Request
+        {
 receivedRequest?.map((friend)=>(
-           <li key={friend.id}>{friend.sourceUsername}<button onClick={acceptFriendRequest(friend)}>Accept</button></li>
-          //  
-         ))
-      }
-      </Content>
+           <li key={friend.id}>{friend.sourceUsername}<button onClick={()=>acceptFriendRequest(friend)}>{friend.status=="sendedRequest"?"Accept": "Accepted"}</button></li> 
+         ))
+      }
+      </Content>
 <p>{text}</p>
-    </FriendStyle>
-
-  )
+    </FriendStyle>
+  )
 }
 
 

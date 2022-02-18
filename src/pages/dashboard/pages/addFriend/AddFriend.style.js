@@ -35,22 +35,22 @@ display:flex;
 
 export const SearchStyle=styled.div`
  //display:flex;
- width:100%;
-justify-content: flex-start;
- height:2em;
- background-color:#2f3136;
- color:#fff;
- padding:0.8em 0em;
- border-radius: 5px;
-margin-top:0.5em;
+//  width:100%;
+// justify-content: flex-start;
+//  height:2em;
+//  background-color:#2f3136;
+//  color:#fff;
+//  padding:0.8em 0em;
+//  border-radius: 5px;
+// margin-top:0.5em;
 
-button{
- border:none;
- padding-inline:2em;
- background-color: #5865f2;
- cursor:pointer;
+// button{
+//  border:none;
+//  padding-inline:2em;
+//  background-color: #5865f2;
+//  cursor:pointer;
 
-}
+// }
 
 `
 export const SearchList = styled.ul`

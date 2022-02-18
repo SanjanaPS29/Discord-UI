@@ -9,7 +9,7 @@ const [requestFriend,setRequestFriend]=useState();
 const {username}=useAuth();
 
   useEffect(()=>{
-  Client.get(`/friendRequest?sourceUsername=${username}`)
+  Client.get(`/friendRequest?sourceUsername=${username}&status=sendedRequest`)
   .then(res=>{
     const data=res.data;
       setRequestFriend(data);    

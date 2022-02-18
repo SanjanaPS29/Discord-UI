@@ -14,10 +14,10 @@ import { useParams } from "react-router-dom";
 import { useAuth } from "../../../../hooks/ProvideAuth";
 
 function Message() {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState();
 
-  const [data, setData] = useState([]);
-  var { friendName } = useParams();
+  const [data, setData] = useState();
+  var { friendId,friendName } = useParams();
   const { username } = useAuth();
   const [generateId,setGeneratedId]=useState();
   const [messageNumber,setMessageNumber]=useState('');
@@ -25,31 +25,37 @@ const [message_id,setMessageId]=useState('')
 
  
   const getId=()=>{
-    const user=[username,friendName];
-    console.log(username)
-    const id=user.sort();
-    const NewId=id[0]+"$"+id[1];
-    console.log(NewId)
-    setGeneratedId(NewId);
-if(NewId!=undefined)
-    get();
+//     const user=[username,friend];
+//     console.log(username)
+//     const id=user.sort();
+//     const genId=id[0]+"$"+id[1];
+//     console.log(genId)
+//     setGeneratedId(genId);
+// if(genId!=undefined)
+    get(friendId);
   }
 
-
-const get=async()=>
+const get=async(genId)=>
 {  
   var msg;
-  await Client.get(`/chatDetails?chatId=${generateId}`)
+  await Client.get(`/chatDetails?chatId=${friendId}`)
 .then(res=>{
- msg=res.data[0];
+  let data=res.data;
+  if(data!= []){
+    setData(data.messages);
+    msg=res.data;
+    console.log(data);
+  }
 })
-if(msg.messages!=undefined){
-  setMessageNumber(msg.messages);
-  console.log(messageNumber);
-messageNumber.forEach(id => {
-  GetIndividualMessage(id);
-});
-}
+
+
+// if(msg!=undefined){
+//   setMessageNumber(msg.messages);
+//   console.log(messageNumber);
+// messageNumber.forEach(id => {
+//   GetIndividualMessage(id);
+// });
+// }
 
 }
 
@@ -64,21 +70,21 @@ messageNumber.forEach(id => {
   //   )}
 
 
-const GetIndividualMessage=async(element)=>{
-  
-  await Client.get(`/messages?messageId=${element}`)
-  .then(res=>{
-    const data=res.data;
-     let  d={...data}; 
-     console.log(data)
-      setData([...data,data.messages]);
+// const GetIndividualMessage=async(element)=>{
+ 
+//   await Client.get(`/messages?messageId=${element}`)
+//   .then(res=>{
+//     const data=res.data;
+//      let  d={...data};
+//      console.log(data)
+//       setData([...data,data.messages]);
 
 
 
-  //   const msg=res.data;
-  // setData(data=>[...data,msg[0]]); 
-  })
-}
+//   //   const msg=res.data;
+//   // setData(data=>[...data,msg[0]]);
+//   })
+// }
 
   const sendMessage = async (e) => {
 
@@ -87,8 +93,17 @@ const GetIndividualMessage=async(element)=>{
       "senderName":username,
       "receiverName":friendName
     }
+    console.log(messageDetails);
+     console.log(data);
+    const old=data;
+  //  await Client.get("/messages/1")
+  // .then(res=>{
 
-await Client.post("/messages",messageDetails);
+  // });
+  old.push(messageDetails);
+  console.log(old);
+const updatedMsg={"messages":old}
+await Client.patch("/chatDetails/1",updatedMsg);
 
 // const chatDetails={
 //   "chat_id":generateId,
@@ -101,7 +116,7 @@ await Client.post("/messages",messageDetails);
     //   senderName: username,
     // });
     // getConversation();
-    get();
+     getId();
     setMessage("");
   };
 
@@ -110,22 +125,20 @@ await Client.post("/messages",messageDetails);
     setMessage(msg);
   };
 
-  const getConversation = () => {
-    Client.get("/conversation").then((res) => {
-      const data = res.data;
-      setData(data);
-    });
-  };
+  // const getConversation = () => {
+  //   Client.get("/conversation").then((res) => {
+  //     const data = res.data;
+  //     setData(data);
+  //   });
+  // };
 
   useEffect(() => {
-    
-    console.log(username);
-
+   
    // getConversation();
     getId();
    
     // getAllMessage();
-  }, [setData,setGeneratedId,setMessageNumber]);
+  }, [setData,setGeneratedId,setMessage]);
 
   return (
     <MessageStyle>
@@ -138,18 +151,18 @@ await Client.post("/messages",messageDetails);
           value={message}
           onChange={(e) => handleMessage(e)}
         ></Input>
-          <button onClick={(e) => sendMessage(e)}>Send Message</button>        
+         <button onClick={(e) => sendMessage(e)}>Send Message</button>
       </MessageBox>
       <ConversationStyle>
-        {data?.map((msg) => (
-          <React.Fragment key={msg.messageId}>
+        {data?.map((msg,index) => (
+          <React.Fragment key={index}>
             <p>{msg.senderName}</p>
             <li>{msg.message}</li>
           </React.Fragment>
         ))}
       </ConversationStyle>
 
-    
+   
     </MessageStyle>
   );
 }
