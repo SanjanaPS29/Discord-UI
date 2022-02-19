@@ -63,18 +63,20 @@ const [showPassword,setShowPassword]=useState(false);
     .get(baseURL+"?email=" + user.email)
       .then((res) => {
         res = res.data;
-        const a = res[0].id;
-        id = a;
-        if (id == undefined) {
-          setText("Email Doesn't Exist");
+        if(res.length!=0){
+          const a = res[0].id;
+          id = a;
+            b(id, user.password);
+          return id;
+        }
+        else{
+          setText("Email Id Doesn't Exist");
           setTimeout(() => {
             setText(null);
           }, 1000);
-        } else {
-          b(id, user.password);
         }
-        return id;
-      });
+
+      });   
   };
   function onSubmit(e) {
     e.preventDefault();

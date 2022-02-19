@@ -11,14 +11,50 @@
       "username": "san",
       "password": "san",
       "id": 3
+    },
+    {
+      "email": "Navi@gmail.com",
+      "username": "navi",
+      "password": "navi",
+      "id": 4
+    },
+    {
+      "email": "Mahe@gmail.com",
+      "username": "mahe",
+      "password": "mahe",
+      "id": 5
     }
   ],
   "friendRequest": [
     {
-      "sourceUsername": "udhaya",
-      "targetUsername": "san",
+      "sourceUsername": "san",
+      "targetUsername": "navi",
+      "status": "accepted",
+      "id": 1
+    },
+    {
+      "sourceUsername": "mahe",
+      "targetUsername": "navi",
       "status": "sendedRequest",
+      "id": 1
+    },
+    {
+      "sourceUsername": "san",
+      "targetUsername": "navi",
+      "status": "accepted",
       "id": 2
+    },
+    {
+      "sourceUsername": "navi",
+      "targetUsername": "udhaya",
+      "status": "accepted",
+      "id": 3
+    },
+    {
+      "sourceUsername": "navi",
+      "targetUsername": "udhaya",
+      "status": "accepted",
+      "id": 4
     }
   ],
   "friendStatusDetails": [],
@@ -34,42 +70,82 @@
   "messages": [],
   "chatDetails": [
     {
-      "chatId": "mahe$sanvi",
+      "chatId": "navi$san",
       "messages": [
         {
-          "message": "geelo",
-          "senderName": "mahe",
-          "receiverName": "sanvi"
+          "message": "gello",
+          "senderName": "navi",
+          "receiverName": "san"
         },
         {
-          "message": "sads",
-          "senderName": "san",
-          "receiverName": "mahe"
+          "message": "how are you",
+          "senderName": "navi",
+          "receiverName": "san"
         },
         {
-          "message": "hello",
-          "senderName": "sanvi",
-          "receiverName": "mahe"
+          "message": "vvvv",
+          "senderName": "navi",
+          "receiverName": "san"
+        },
+        {
+          "message": "vjkcv,cm",
+          "senderName": "navi",
+          "receiverName": "san"
+        },
+        {
+          "message": "slfj kej fkd",
+          "senderName": "navi",
+          "receiverName": "san"
         }
       ],
       "id": 1
+    },
+    {
+      "chatId": "navi$udhaya",
+      "messages": [
+        {
+          "message": "hello",
+          "senderName": "udhaya",
+          "receiverName": "navi"
+        },
+        {
+          "message": "how are you",
+          "senderName": "udhaya",
+          "receiverName": "navi"
+        },
+        {
+          "message": "its been a long time",
+          "senderName": "udhaya",
+          "receiverName": "navi"
+        }
+      ],
+      "id": 2
     }
   ],
   "conversation": [],
   "friends": [
     {
-      "username": "udhaya",
+      "username": "san",
       "friends": [
         {
+          "friendName": "navi",
+          "friendId": "navi$san",
           "status": "friend"
         }
       ],
       "id": 1
     },
     {
-      "username": "udhaya",
+      "username": "navi",
       "friends": [
         {
+          "friendName": "san",
+          "friendId": "navi$san",
+          "status": "friend"
+        },
+        {
+          "friendName": "udhaya",
+          "friendId": "navi$udhaya",
           "status": "friend"
         }
       ],
@@ -79,82 +155,12 @@
       "username": "udhaya",
       "friends": [
         {
+          "friendName": "navi",
+          "friendId": "navi$udhaya",
           "status": "friend"
         }
       ],
       "id": 3
-    },
-    {
-      "username": "udhaya",
-      "friends": [
-        {
-          "status": "friend"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "username": "san",
-      "friends": [
-        {
-          "status": "friend"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "username": "udhaya",
-      "friends": [
-        {
-          "status": "friend"
-        }
-      ],
-      "id": 6
-    },
-    {
-      "username": "san",
-      "friends": [
-        {
-          "status": "friend"
-        }
-      ],
-      "id": 7
-    },
-    {
-      "username": "udhaya",
-      "friends": [
-        {
-          "status": "friend"
-        }
-      ],
-      "id": 8
-    },
-    {
-      "username": "san",
-      "friends": [
-        {
-          "status": "friend"
-        }
-      ],
-      "id": 9
-    },
-    {
-      "username": "udhaya",
-      "friends": [
-        {
-          "status": "friend"
-        }
-      ],
-      "id": 10
-    },
-    {
-      "username": "san",
-      "friends": [
-        {
-          "status": "friend"
-        }
-      ],
-      "id": 11
     }
   ]
 }

@@ -20,7 +20,7 @@ function AddFriend() {
 const [friendStatus,setFriendStatus]=useState(false);
 const [text,setText]=useState();
 const {username}=useAuth();
-
+const [existingFriend,setExistingFriend]=useState([]);
 
   const getData = async () => {
     await axios.get("http://localhost:3001/registration").then((res) => {
@@ -30,14 +30,31 @@ const {username}=useAuth();
     });
   };
 
+
+const getAlreadyFriend=async()=>{
+      await axios.get(`http://localhost:3001/friends?username=${username}`)
+      .then((res) => {
+              data=res.data[0].friends;
+        let friend=[]; 
+        data.forEach(element => {
+            let val=element.friendName;
+           friend.push(val )
+        });
+      console.log(friend);
+            });
+}
+
   const filterData = (searchTerm) => {
     const search = searchTerm.target.value;
+const friendArray=existingFriend;
+friendArray.indexOf("san");
     setaddFriend(search);
-   
     if (search === "") {
       setSearch([]);
     } else {
-      const newData = data.filter((user) =>
+    let notFriend = data.filter((user)=> friendArray.indexOf("san") <= -1 );
+    console.log(notFriend);
+      const newData = notFriend.filter((user) =>
         user.username.toLowerCase().includes(search.toLowerCase())
       );
       setSearch(newData);
@@ -64,6 +81,8 @@ setText(null);
 
   useEffect(() => {
     getData();
+const fri=getAlreadyFriend();
+setExistingFriend(fri);
   }, [setData, setSearch,setaddFriend]);
 
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import ChatBox from '../../../pages/chatBox/ChatBox';
 import {AsideConversationStyle,Messages,Content,DirectMessage,LinkStyle,InputSearch} from './AsideConversation.style'
 
 function AsideConversation() {
@@ -16,7 +17,7 @@ function AsideConversation() {
     <div>Direct</div>
     <div>+</div>
     </DirectMessage>
-    <div>Messages Area</div>
+    <div><ChatBox/></div>
   </Messages>
  </Content>
   

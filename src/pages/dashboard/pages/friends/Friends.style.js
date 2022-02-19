@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Content=styled.ul` 
 list-style:none;
 margin-top:1em;
+
 li{
     display:flex;
     justify-content: space-between;
@@ -11,6 +12,9 @@ li{
     border-radius:4px;
     padding:0.5em;
     margin-bottom:0.4em;
+    div{
+        float:right;
+    }
 }
 button{
     padding:0.3em 1em;

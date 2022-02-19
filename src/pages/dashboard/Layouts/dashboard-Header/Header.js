@@ -13,7 +13,7 @@ const {logout,username} = useAuth();
     <HeaderStyle>
    <ListStyle color={"#fff"}><Link to="/friends">Icon Friends</Link></ListStyle>
    {/* <ListStyle color={"#fff"}><Link to="/online">Online</Link></ListStyle> */}
-   <ListStyle color={"#fff"}><Link to="/message">Message</Link></ListStyle>
+   {/* <ListStyle color={"#fff"}><Link to="/message">Message</Link></ListStyle> */}
    <ListStyle color={"#8e9297"}><Link to="/all">All</Link></ListStyle>
    <ListStyle color={"#8e9297"}><Link to="/pending">Pending</Link></ListStyle>
    <ListStyle color={"#8e9297"}><Link to="/blocked">Blocked</Link></ListStyle>

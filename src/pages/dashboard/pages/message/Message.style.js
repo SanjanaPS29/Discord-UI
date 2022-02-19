@@ -9,6 +9,13 @@ export const ConversationStyle=styled.ul`
 
 overflow-y: auto; 
 scrollbar-width: 3px;
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background: rgb(149 156 167 / 80%);
+}
 max-height:500px;
 li{
     color:#fff;
